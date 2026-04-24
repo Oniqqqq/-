@@ -47,7 +47,7 @@ if (mountPath === "/") {
 }
 
 app.use((req, res) => {
-  res.sendFile(path.join(staticDir, "index.html"));
+  res.status(404).type("text/plain").send("Not Found");
 });
 
 app.listen(port, "0.0.0.0", () => {

@@ -27,5 +27,8 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 ## Artifacts
 
 - **myhealthprac** (`artifacts/myhealthprac`) — Local 1:1 static copy of https://www.myhealthprac.com/. Files extracted from the user-provided archive into `static/` and served by a tiny Express static server (`server.mjs`). All third-party assets (Webflow CSS/JS, GSAP, Lenis, Swiper, Three.js, Vanta, images) are bundled locally so the site runs offline.
+  - The server returns 404 for missing files (no SPA fallback), so missing JS chunks don't get an HTML body that breaks the parser.
+  - 13 dynamic `webflow.achunk.<hash>.js` files were re-fetched from `cdn.prod.website-files.com` (they weren't in the archive) so the Webflow runtime fully loads locally.
+  - Remaining browser console errors come from third-party tracking SDKs (Facebook Pixel, GTM) calling live endpoints — they don't affect the visual rendering.
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
