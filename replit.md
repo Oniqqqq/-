@@ -30,5 +30,7 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
   - The server returns 404 for missing files (no SPA fallback), so missing JS chunks don't get an HTML body that breaks the parser.
   - 13 dynamic `webflow.achunk.<hash>.js` files were re-fetched from `cdn.prod.website-files.com` (they weren't in the archive) so the Webflow runtime fully loads locally.
   - Remaining browser console errors come from third-party tracking SDKs (Facebook Pixel, GTM) calling live endpoints — they don't affect the visual rendering.
+  - jQuery is injected synchronously near the top of `<head>` so OwlCarousel (which is async-loaded earlier in the document than jQuery in the snapshot) doesn't crash with `$.fn` undefined.
+  - The page snapshot tool HTML-encoded characters inside `<script>` tags (`=&gt;`, `&amp;&amp;`, `&lt;`, `&gt;`). Browsers don't decode entities inside `<script>` content, so all inline scroll/animation scripts (Lenis init, GSAP letters-slide-up, ScrollTrigger setup, circle rotation) silently failed with syntax errors. Decoded these entities directly in `static/index.html` so animations work. If the static folder is ever re-extracted from the ZIP, run the same decode step again.
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
