@@ -24,4 +24,8 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
 - `pnpm --filter @workspace/api-server run dev` — run API server locally
 
+## Artifacts
+
+- **myhealthprac** (`artifacts/myhealthprac`) — Local 1:1 static copy of https://www.myhealthprac.com/. Files extracted from the user-provided archive into `static/` and served by a tiny Express static server (`server.mjs`). All third-party assets (Webflow CSS/JS, GSAP, Lenis, Swiper, Three.js, Vanta, images) are bundled locally so the site runs offline.
+
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.

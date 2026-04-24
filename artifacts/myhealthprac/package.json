@@ -1,0 +1,15 @@
+{
+  "name": "@workspace/myhealthprac",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "build": "node build.mjs",
+    "serve": "node server.mjs",
+    "typecheck": "echo 'no typecheck'"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

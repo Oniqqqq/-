@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "MyHealthPrac"
+version = "1.0.0"
+id = "artifacts/myhealthprac"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18806
+
+[services.development]
+run = "pnpm --filter @workspace/myhealthprac run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/myhealthprac", "run", "build" ]
+publicDir = "artifacts/myhealthprac/dist/public"
+serve = "static"
+
+[services.env]
+PORT = "18806"
+BASE_PATH = "/"
