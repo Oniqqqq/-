@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "buildCommand": "",
   "installCommand": "",
-  "outputDirectory": "artifacts/myhealthprac/static"
+  "buildCommand": "cp -r artifacts/myhealthprac/static/. public",
+  "outputDirectory": "public"
 }
