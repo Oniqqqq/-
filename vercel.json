@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "installCommand": "pnpm install",
-  "buildCommand": "pnpm --filter @workspace/myhealthprac build",
-  "outputDirectory": "artifacts/myhealthprac/dist/public"
+  "buildCommand": "",
+  "installCommand": "",
+  "outputDirectory": "artifacts/myhealthprac/static"
 }
