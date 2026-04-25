@@ -46,8 +46,8 @@
   </style>
   <script
     type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
-  <link href="/images/682db78e969d6289b48e5757_32x32.png" rel="shortcut icon" type="image/x-icon" />
-  <link href="/images/682db7901d0749a447447a44_256x256.png" rel="apple-touch-icon" />
+  <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link href="/images/favicon.ico" rel="apple-touch-icon" />
   <link href="https://nikamed.ru" rel="canonical" />
   <script type="application/ld+json">
 {
@@ -64,8 +64,7 @@
   }
 }
 </script>
-  <script
-    type="text/javascript">!function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.agent = 'plwebflow'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '1828371884737887'); fbq('track', 'PageView');</script>
+  <!-- Facebook Pixel отключён — прототип не должен отправлять данные во внешние сервисы -->
   <style>
     ::-webkit-scrollbar-button {
       transition: 0ms !important;
@@ -104,53 +103,8 @@
   <!-- [Attributes by Finsweet] Copy to clipboard -->
   <script defer src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-copyclip@1/copyclip.js"></script>
 
-  <!-- start ReferralHero code -->
-  <script nonce="0f9105acc764cd9b734cc3ad4d53582e">
-    !function (m, a, i, t, r, e) { if (m.RH) return; r = m.RH = {}, r.uuid = t, r.loaded = 0, r.base_url = i, r.queue = [], m.rht = function () { r.queue.push(arguments) }; e = a.getElementsByTagName('script')[0], c = a.createElement('script'); c.async = !0, c.src = 'https://d7zve4d3u0dfm.cloudfront.net/' + 'production' + '/' + t + '.js', e.parentNode.insertBefore(c, e) }(window, document, 'https://app.referralhero.com', 'RHc18544d5e1');
-
-  </script>
-  <!-- end ReferralHero code -->
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DMCMHB0P1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-2DMCMHB0P1');
-  </script>
-
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-5V643PLH');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Meta Pixel Code -->
-  <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '4352177275051532');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=4352177275051532&ev=PageView&noscript=1" /></noscript>
-  <!-- End Meta Pixel Code -->
+  <!-- ReferralHero отключён — прототип -->
+  <!-- Google Analytics / GTM / Meta Pixel отключены — прототип -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
 
@@ -205,6 +159,140 @@
 
     .char {
       display: inline-block;
+    }
+  </style>
+
+  <style>
+    /* ====== MOBILE FIXES: Hero & Modal ====== */
+
+    @media screen and (max-width: 767px) {
+
+      /* ── HERO ── */
+
+      /* Allow hero to grow past 100vh so content isn't cut off */
+      .hero {
+        height: auto;
+        min-height: 100svh;
+      }
+
+      /* Keep video covering at least full viewport */
+      .background_video {
+        height: max(100svh, 100%);
+      }
+
+      /* Fix h1: inline style="font-size:2.8em" overrides Webflow responsive values.
+         body is font-size:1vw, so 2.8em = 2.8vw ≈ 10px on a 375px phone.
+         Restore Webflow's 767px breakpoint value. */
+      .hero .h1 {
+        font-size: 9em !important;
+        line-height: 1.1 !important;
+      }
+
+      /* Fix h2 heading — same inline override issue */
+      .hero .heading {
+        font-size: 5em !important;
+        margin: 0 !important;
+      }
+
+      /* Show feature icon cards — Webflow hides .cms_list at ≤479px */
+      .hero .cms_list {
+        display: block !important;
+        margin-bottom: 20px;
+      }
+
+      /* Full-width glass cards on mobile */
+      .matte-container.headline-matte,
+      .matte-container.features-matte {
+        width: 100%;
+        box-sizing: border-box;
+        display: block;
+      }
+
+      /* Subhead matte: full-width */
+      .subhead_link .matte-container {
+        width: 100%;
+        box-sizing: border-box;
+        display: block;
+      }
+
+      /* Reduce bottom padding: was 26em ≈ 97px, now features add extra height */
+      .wrapper_hero {
+        padding-bottom: 28px !important;
+      }
+
+      /* Bottom hero: stack with gap */
+      .bottom_hero {
+        gap: 12px;
+        width: 100%;
+      }
+
+      /* ── MODAL ── */
+
+      /* Fix modal text: all inline em values inherit body's 1vw.
+         Setting px here makes 1em = 16px inside the modal. */
+      .modal_window {
+        font-size: 16px;
+        max-height: 92svh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* Reset headline: without this, 5.8em × 16px = 92px */
+      .modal_headline {
+        font-size: 22px !important;
+        line-height: 1.25;
+      }
+
+      /* Comfortable inner padding on mobile */
+      .modal_wrapper {
+        padding: 22px 20px 28px !important;
+      }
+    }
+
+    @media screen and (max-width: 479px) {
+
+      /* ── HERO at tiny screens (≤479px) ── */
+
+      /* Compact h1 — smaller than Webflow's 11.5em to leave breathing room */
+      .hero .h1 {
+        font-size: 9em !important;
+        line-height: 1.1 !important;
+      }
+
+      .hero .heading {
+        font-size: 5.5em !important;
+      }
+
+      /* Feature card text (no Webflow values at this breakpoint) */
+      .hero .title_txt {
+        font-size: 3.5em !important;
+      }
+
+      .hero .descript_txt {
+        font-size: 2.8em !important;
+        width: auto !important;
+        line-height: 1.3;
+      }
+
+      /* Compact matte padding for more breathing room */
+      .matte-container.headline-matte {
+        padding: 12px 16px;
+      }
+
+      .matte-container.features-matte {
+        padding: 14px 16px;
+      }
+
+      /* Slightly less top padding — gives hero more internal space */
+      .wrapper_hero {
+        padding-top: 20em !important;
+        padding-bottom: 24px !important;
+      }
+
+      /* Tighter gap between feature list items */
+      .features-matte .list_hero {
+        margin-bottom: 14px !important;
+      }
     }
   </style>
 </head>
@@ -502,7 +590,7 @@
             <div class="h_dot"></div><a href="#" class="h_link w-inline-block">
               <div>Для розницы</div>
             </a>
-          </div><a data-w-id="4e870d66-9fd1-5824-aa2f-f20e3fbfd043" href="#" class="button_link w-inline-block">
+          </div><a data-w-id="4e870d66-9fd1-5824-aa2f-f20e3fbfd043" href="http://nikamed.ru/consumers/ortopedicheskie_roznichnyie_seti/" target="_blank" rel="noopener noreferrer" class="button_link w-inline-block">
             <div>Где купить</div>
             <div class="circle_link">
               <div class="arrow_icon first_arrow"><img src="/images/6819ec297e6347786f9815eb_arrow_button.svg"
@@ -542,7 +630,7 @@
           </a></div>
         <div class="cta_mobile">
           <div class="title_cta">Найти продукцию</div>
-          <div class="button_box"><a data-w-id="3c5cbb73-5018-1dde-c3b0-fccd610432a7" href="#"
+          <div class="button_box"><a data-w-id="3c5cbb73-5018-1dde-c3b0-fccd610432a7" href="http://nikamed.ru/consumers/ortopedicheskie_roznichnyie_seti/" target="_blank" rel="noopener noreferrer"
               class="button_link white_button white_white w-inline-block">
               <div>Где купить</div>
               <div class="circle_link black b_b">
@@ -571,139 +659,62 @@
     </div>
   </div>
   <div class="inline_referral">
-    <div class="custom_button w-embed">
-      <div id='referralhero-inline-button-MF4a5f00ee26'></div>
-    </div>
-    <div class="custom_scroll w-embed w-script">
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const lenis = window.lenis;
-          const trigger = document.getElementById("referralhero-inline-button-MF4a5f00ee26");
-          const modalSelector = "#mtr-popup-container";
-
-          // helper
-          const enableModalScroll = modal => {
-            modal.style.overflow = "auto";
-            modal.style.maxHeight = "100vh";
-            modal.style.webkitOverflowScrolling = "touch";
-
-            // change wheel reaction
-            modal.addEventListener("wheel", e => e.stopPropagation(), { passive: true });
-            modal.addEventListener("touchmove", e => e.stopPropagation(), { passive: true });
-          };
-
-          // when modal is open
-          if (trigger) {
-            trigger.addEventListener("click", () => {
-              const waitForModal = setInterval(() => {
-                const modal = document.querySelector(modalSelector);
-                if (modal && modal.classList.contains("show")) {
-                  clearInterval(waitForModal);
-
-                  // block background scroll
-                  if (lenis) lenis.stop();
-                  document.body.classList.add("lock-scroll");
-
-                  // scroll
-                  enableModalScroll(modal);
-                }
-              }, 150);
-            });
-          }
-
-          // наблюдаем за закрытием
-          const observer = new MutationObserver(() => {
-            const modal = document.querySelector(modalSelector);
-            if (!modal || !modal.classList.contains("show")) {
-              document.body.classList.remove("lock-scroll");
-              if (lenis) lenis.start();
-            }
-          });
-          observer.observe(document.body, { childList: true, subtree: true });
-        });
-      </script>
-
-      <style>
-        .lock-scroll {
-          overflow: hidden !important;
-          height: 100vh !important;
-        }
-
-        /* Scroll Modal bar */
-        #mtr-popup-container::-webkit-scrollbar {
-          width: 8px;
-        }
-
-        #mtr-popup-container::-webkit-scrollbar-track {
-          background: transparent;
-        }
-
-        #mtr-popup-container::-webkit-scrollbar-thumb {
-          background-color: rgba(0, 0, 0, 0.2);
-          border-radius: 4px;
-        }
-
-        #mtr-popup-container:hover::-webkit-scrollbar-thumb {
-          background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        /* Firefox */
-        #mtr-popup-container {
-          scrollbar-width: thin;
-          scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
-        }
-      </style>
-    </div>
+    <button id="proto-cta-btn" class="button_link white_button" style="cursor:pointer;border:none;background-color:#010101;color:#fff;">
+      <div>Прототип by e-comEXPERT</div>
+      <div class="circle_link black b_b">
+        <div class="arrow_icon white first_arrow a_f"><img src="/images/6819ec297e6347786f9815eb_arrow_button.svg" loading="lazy" alt="" /></div>
+        <div class="arrow_icon white second_arrow a_l"><img src="/images/6819ec297e6347786f9815eb_arrow_button.svg" loading="lazy" alt="" /></div>
+      </div>
+    </button>
   </div>
   <div style="display:none;opacity:0" class="modal_join_waitlist">
-    <div class="overlay_box_modal"></div>
+    <div class="overlay_box_modal" id="proto-modal-overlay"></div>
     <div class="modal_box">
-      <div
-        style="-webkit-transform:translate3d(125%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(125%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(125%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(125%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-        class="modal_window">
-        <div class="modal_wrapper">
+      <div class="modal_window" style="transform:translate(125%);">
+        <div class="modal_wrapper" style="justify-content:space-between;">
           <div class="headline_box">
             <div class="modal_flex">
-              <div class="modal_headline">Стать партнером НИКАМЕД</div>
-              <div class="txt_base opacity">Развивайте бизнес вместе с лидером рынка.</div>
+              <div class="modal_headline">Получить коммерческое предложение</div>
             </div>
-            <div data-w-id="51f82a38-3e45-d3f8-0b36-a47cee28ed83" class="close_modal">
+            <div class="close_modal" id="proto-close-modal">
               <div class="line_close one"></div>
               <div class="line_close two"></div>
             </div>
           </div>
-          <div class="form_subscribe">
-            <div class="form_container w-form">
-              <form id="wf-form-Join-Waitlist" name="wf-form-Join-Waitlist" data-name="Join Waitlist" method="get"
-                class="form_box" data-wf-page-id="679d8b01c23ed7847fc51095"
-                data-wf-element-id="0f988ad3-86a4-f5ba-bb44-7711078c3b42">
-                <div class="form_fields">
-                  <div class="flex_modal">
-                    <div class="double_line">
-                      <div id="w-node-af6a684c-5968-cee1-31d9-681659dc8a5d-7fc51095" class="field_box"><label
-                          for="First-Name" class="field_text">Имя*</label><input class="field_input w-input"
-                          maxlength="256" name="First-Name" data-name="First Name" placeholder="Ваше имя" type="text"
-                          id="First-Name" required="" /></div>
-                    </div>
-                    <div class="field_box"><label for="Email-Address" class="field_text">Email адрес*</label><input
-                        class="field_input w-input" maxlength="256" name="Email-Address" data-name="Email Address"
-                        placeholder="Ваш email" type="email" id="Email-Address" required="" /></div>
-                  </div>
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:32px;padding:32px 0;">
+            <div class="txt_base" style="color:rgba(1,1,1,0.45);font-size:1em;line-height:1.6;">Свяжитесь с нами — подготовим персональное предложение для вашего бизнеса</div>
+            <div style="display:flex;flex-direction:column;gap:24px;">
+              <a href="tel:+74959605120" style="display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;">
+                <div style="width:48px;height:48px;border-radius:50%;background:#010101;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 6.81a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 12a16 16 0 006.09 6.09l.41-.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>
                 </div>
-                <div class="submit_pp"><input type="submit" data-wait="Пожалуйста, подождите..."
-                    class="submit_form w-button" value="Оставить заявку" />
-                  <div class="note_pp">
-                    <div class="txt_base">Нажимая кнопку, вы соглашаетесь с условиями.</div>
-                  </div>
+                <div>
+                  <div style="font-size:.7em;color:rgba(1,1,1,0.38);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Телефон</div>
+                  <div style="font-size:1.15em;font-weight:500;letter-spacing:-.01em;">+7 495 960-51-20</div>
                 </div>
-              </form>
-              <div class="success_message w-form-done">
-                <div>Ваша заявка принята. Мы свяжемся с вами в ближайшее время.</div>
-              </div>
-              <div class="error_message middle w-form-fail">
-                <div>Упс! Что-то пошло не так при отправке формы.</div>
-              </div>
+              </a>
+              <a href="mailto:info@e-comexpert.ru" style="display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;">
+                <div style="width:48px;height:48px;border-radius:50%;background:#010101;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div>
+                  <div style="font-size:.7em;color:rgba(1,1,1,0.38);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Email</div>
+                  <div style="font-size:1.15em;font-weight:500;letter-spacing:-.01em;">info@e-comexpert.ru</div>
+                </div>
+              </a>
+              <a href="https://e-comexpert.ru/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;">
+                <div style="width:48px;height:48px;border-radius:50%;background:#010101;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path></svg>
+                </div>
+                <div>
+                  <div style="font-size:.7em;color:rgba(1,1,1,0.38);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Сайт</div>
+                  <div style="font-size:1.15em;font-weight:500;letter-spacing:-.01em;">e-comexpert.ru</div>
+                </div>
+              </a>
             </div>
+          </div>
+          <div style="border-top:1px solid rgba(1,1,1,0.08);padding-top:18px;">
+            <div class="txt_base" style="color:rgba(1,1,1,0.3);font-size:.78em;">Прототип разработан командой e-comEXPERT</div>
           </div>
         </div>
       </div>
@@ -761,7 +772,7 @@
             <h2 class="heading" style="font-size: 1.2em; margin: 0;">Собственные бренды, производство и дистрибуция по
               всей России</h2>
           </div>
-          <div class="button_box"><a data-w-id="eebb26de-e363-f490-5e60-1822b528dcee" href="#whats-included"
+          <div class="button_box"><a data-w-id="eebb26de-e363-f490-5e60-1822b528dcee" href="http://nikamed.ru/consumers/ortopedicheskie_roznichnyie_seti/" target="_blank" rel="noopener noreferrer"
               class="button_link white_button white_white w-inline-block">
               <div>Где купить</div>
               <div class="circle_link black b_b">
@@ -1267,7 +1278,7 @@
           <div class="text_bottom">
             <div text-split="" letters-slide-up="" class="m_txt m_side">Единая система ортопедических решений —<br />для
               лечения, профилактики и реабилитации в реальных условиях.</div>
-            <div class="button_box"><a data-w-id="ec17a15e-8224-0174-5a61-8a1be3561360" href="#"
+            <div class="button_box"><a data-w-id="ec17a15e-8224-0174-5a61-8a1be3561360" href="http://nikamed.ru/consumers/ortopedicheskie_roznichnyie_seti/" target="_blank" rel="noopener noreferrer"
                 class="button_link white_button w-inline-block">
                 <div>Для партнеров</div>
                 <div class="circle_link black">
@@ -1390,7 +1401,7 @@
         <div class="headline_cta">
           <div text-split="" letters-slide-up="" class="m_txt m_side white ch_spec">Независимо от задачи —<br />решение
             уже существует в системе продуктов</div>
-          <div class="button_box"><a data-w-id="fb2e4746-dbcd-3c72-cfa3-31ca134a9ea0" href="#"
+          <div class="button_box"><a data-w-id="fb2e4746-dbcd-3c72-cfa3-31ca134a9ea0" href="http://nikamed.ru/consumers/ortopedicheskie_roznichnyie_seti/" target="_blank" rel="noopener noreferrer"
               class="button_link white_button white_white w-inline-block">
               <div>Где купить</div>
               <div class="circle_link black b_b">
@@ -1558,7 +1569,7 @@
     <div class="wrapper_cta">
       <div class="cta_headline">
         <div class="matte-container"
-          style="opacity: 1; transform: none; text-align: center; margin-bottom: 30px; background: rgba(255,255,255,0.7); padding: 30px 40px; border-radius: 20px;">
+          style="opacity: 1; transform: none; text-align: left; margin-bottom: 30px; background: rgba(255,255,255,0.7); padding: 30px 40px; border-radius: 20px;">
           <h2 letters-slide-up="" text-split="" class="h2 cta_last" style="color: #010101 !important;">Федеральная сеть
             и партнерская экосистема</h2>
           <div class="desc_box" style="margin-top: 15px;">
@@ -1567,7 +1578,7 @@
           </div>
         </div>
         <div class="button_box">
-          <a data-w-id="a3bba266-da0b-a874-ddbc-99cfcef833a3" href="#"
+          <a data-w-id="a3bba266-da0b-a874-ddbc-99cfcef833a3" href="http://nikamed.ru/consumers/ortopedicheskie_roznichnyie_seti/" target="_blank" rel="noopener noreferrer"
             class="button_link white_button white_white w-inline-block">
             <div>Где купить</div>
             <div class="circle_link black b_b">
@@ -1961,37 +1972,52 @@
       ScrollTrigger.refresh();
     });
   </script>
-  <script>(function () { function u() { const b = document.querySelector("#referralhero-inline-button-MF4a5f00ee26") || document.querySelector(".rh-launcher") || document.querySelector("[id^="referralhero - "]"); if (b) { const w = document.createTreeWalker(b, NodeFilter.SHOW_TEXT, null, false); let n; while (n = w.nextNode()) { if (n.nodeValue.toLowerCase().includes("join") || n.nodeValue.toLowerCase().includes("referral")) { n.nodeValue = "Прототип by e-comEXPERT" } } if (b.innerText && (b.innerText.toLowerCase().includes("join") || b.innerText.toLowerCase().includes("referral"))) { b.innerText = "Прототип by e-comEXPERT" } } } const i = setInterval(u, 1000); setTimeout(() => clearInterval(i), 15000) })()</script>
-</body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var modal = document.querySelector('.modal_join_waitlist');
+      var win = modal && modal.querySelector('.modal_window');
+      var btn = document.getElementById('proto-cta-btn');
+      var closeBtn = document.getElementById('proto-close-modal');
+      var overlay = document.getElementById('proto-modal-overlay');
 
-</html> e.preventDefault(); e.stopImmediatePropagation();
-window.open(TARGET_URL, '_blank');
-}, true);
-}
-}
-setInterval(patchFB, 500);
-});
-</script>
+      if (!modal || !win || !btn) return;
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    function patchFB() {
-      const btn = document.querySelector("#maitre-inline-button") ||
-        document.querySelector("#referralhero-inline-button-MF4a5f00ee26") ||
-        document.querySelector(".rh-launcher");
-      if (btn && !btn.dataset.fixed) {
-        btn.innerHTML = '<span style="font-weight:600;">Прототип by e-comEXPERT</span>';
-        btn.dataset.fixed = "true";
-        btn.style.backgroundColor = "#010101";
-        btn.style.color = "white";
-        btn.style.padding = "10px 20px";
-        btn.style.borderRadius = "30px";
-        btn.style.zIndex = "99999";
+      function openModal() {
+        modal.style.display = 'block';
+        if (window.gsap) {
+          gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' });
+          gsap.fromTo(win, { x: '125%' }, { x: '0%', duration: 0.45, ease: 'power3.out', delay: 0.05 });
+        } else {
+          modal.style.opacity = '1';
+          win.style.transform = 'translate(0)';
+        }
+        document.body.style.overflow = 'hidden';
+        if (window.lenis) window.lenis.stop();
       }
-    }
-    setInterval(patchFB, 1000);
-  });
-</script>
+
+      function closeModal() {
+        if (window.gsap) {
+          gsap.to(win, { x: '125%', duration: 0.38, ease: 'power3.in' });
+          gsap.to(modal, {
+            opacity: 0, duration: 0.38, delay: 0.05, onComplete: function () {
+              modal.style.display = 'none';
+              document.body.style.overflow = '';
+              if (window.lenis) window.lenis.start();
+            }
+          });
+        } else {
+          modal.style.display = 'none';
+          modal.style.opacity = '0';
+          win.style.transform = 'translate(125%)';
+          document.body.style.overflow = '';
+        }
+      }
+
+      btn.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (overlay) overlay.addEventListener('click', closeModal);
+    });
+  </script>
 </body>
 
 </html>
